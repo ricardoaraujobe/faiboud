@@ -1,0 +1,203 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.semanticweb.org/ricardo/ontologies/2016/6/untitled-ontology-48#"
+     xml:base="http://www.semanticweb.org/ricardo/ontologies/2016/6/untitled-ontology-48"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
+     xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="http://www.semanticweb.org/ricardo/ontologies/2016/6/untitled-ontology-48"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/ricardo/ontologies/2016/6/untitled-ontology-48#temFilhos -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/ricardo/ontologies/2016/6/untitled-ontology-48#temFilhos"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/ricardo/ontologies/2016/6/untitled-ontology-48#anodeNascimento -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/ricardo/ontologies/2016/6/untitled-ontology-48#anodeNascimento"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ricardo/ontologies/2016/6/untitled-ontology-48#datadeNascimento -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/ricardo/ontologies/2016/6/untitled-ontology-48#datadeNascimento"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ricardo/ontologies/2016/6/untitled-ontology-48#temIdade -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/ricardo/ontologies/2016/6/untitled-ontology-48#temIdade"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ricardo/ontologies/2016/6/untitled-ontology-48#temIdadeParaDirigir -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/ricardo/ontologies/2016/6/untitled-ontology-48#temIdadeParaDirigir"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/ricardo/ontologies/2016/6/untitled-ontology-48#Adulto -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ricardo/ontologies/2016/6/untitled-ontology-48#Adulto">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ricardo/ontologies/2016/6/untitled-ontology-48#Pessoa"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ricardo/ontologies/2016/6/untitled-ontology-48#Pais -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ricardo/ontologies/2016/6/untitled-ontology-48#Pais">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/ricardo/ontologies/2016/6/untitled-ontology-48#Pessoa"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ricardo/ontologies/2016/6/untitled-ontology-48#Pessoa -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/ricardo/ontologies/2016/6/untitled-ontology-48#Pessoa"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/ricardo/ontologies/2016/6/untitled-ontology-48#Ivan -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ricardo/ontologies/2016/6/untitled-ontology-48#Ivan">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ricardo/ontologies/2016/6/untitled-ontology-48#Pessoa"/>
+        <datadeNascimento rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2006-04-14T00:00:00Z</datadeNascimento>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ricardo/ontologies/2016/6/untitled-ontology-48#Lenka -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ricardo/ontologies/2016/6/untitled-ontology-48#Lenka">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ricardo/ontologies/2016/6/untitled-ontology-48#Pessoa"/>
+        <temFilhos rdf:resource="http://www.semanticweb.org/ricardo/ontologies/2016/6/untitled-ontology-48#Ivan"/>
+        <datadeNascimento rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">1975-11-10T00:00:00Z</datadeNascimento>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/ricardo/ontologies/2016/6/untitled-ontology-48#Martin -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/ricardo/ontologies/2016/6/untitled-ontology-48#Martin">
+        <rdf:type rdf:resource="http://www.semanticweb.org/ricardo/ontologies/2016/6/untitled-ontology-48#Pessoa"/>
+        <temFilhos rdf:resource="http://www.semanticweb.org/ricardo/ontologies/2016/6/untitled-ontology-48#Ivan"/>
+        <datadeNascimento rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">1972-10-02T00:00:00Z</datadeNascimento>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Rules
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description rdf:about="urn:swrl#p">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                        <swrl:classPredicate rdf:resource="http://www.semanticweb.org/ricardo/ontologies/2016/6/untitled-ontology-48#Pessoa"/>
+                        <swrl:argument1 rdf:resource="urn:swrl#p"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                                <swrl:classPredicate>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="http://www.semanticweb.org/ricardo/ontologies/2016/6/untitled-ontology-48#temFilhos"/>
+                                        <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
+                                        <owl:onClass rdf:resource="http://www.semanticweb.org/ricardo/ontologies/2016/6/untitled-ontology-48#Pessoa"/>
+                                    </owl:Restriction>
+                                </swrl:classPredicate>
+                                <swrl:argument1 rdf:resource="urn:swrl#p"/>
+                            </rdf:Description>
+                        </rdf:first>
+                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                        <swrl:classPredicate rdf:resource="http://www.semanticweb.org/ricardo/ontologies/2016/6/untitled-ontology-48#Pais"/>
+                        <swrl:argument1 rdf:resource="urn:swrl#p"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.2.5.20160517-0735) https://github.com/owlcs/owlapi -->
+

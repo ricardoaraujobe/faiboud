@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="org.semanticweb.owlapi.apibinding.OWLManager"/>
+<fullyQualifiedTypeName name="org.semanticweb.owlapi.model.IRI"/>
+<fullyQualifiedTypeName name="org.semanticweb.owlapi.search.EntitySearcher"/>
+<fullyQualifiedTypeName name="org.semanticweb.owlapi.io.OWLObjectRenderer"/>
+<fullyQualifiedTypeName name="org.semanticweb.owlapi.model.OWLNamedIndividual"/>
+<fullyQualifiedTypeName name="org.semanticweb.owlapi.model.OWLObjectPropertyAssertionAxiom"/>
+<fullyQualifiedTypeName name="java.io.InputStreamReader"/>
+<fullyQualifiedTypeName name="java.io.Reader"/>
+</qualifiedTypeNameHistroy>

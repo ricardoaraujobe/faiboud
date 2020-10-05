@@ -1,0 +1,5 @@
+sudo javac -cp ".:lib/*" colorblindOWL/CreateUser.java
+
+sudo java -cp ".:lib/*" colorblindOWL/CreateUser
+
+

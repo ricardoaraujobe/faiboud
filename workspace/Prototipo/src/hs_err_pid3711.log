@@ -1,0 +1,582 @@
+#
+# There is insufficient memory for the Java Runtime Environment to continue.
+# Native memory allocation (mmap) failed to map 250675200 bytes for committing reserved memory.
+# Possible reasons:
+#   The system is out of physical RAM or swap space
+#   In 32 bit mode, the process size limit was hit
+# Possible solutions:
+#   Reduce memory load on the system
+#   Increase physical memory or swap space
+#   Check if swap backing store is full
+#   Use 64 bit Java on a 64 bit OS
+#   Decrease Java heap size (-Xmx/-Xms)
+#   Decrease number of Java threads
+#   Decrease Java thread stack sizes (-Xss)
+#   Set larger code cache with -XX:ReservedCodeCacheSize=
+# This output file may be truncated or incomplete.
+#
+#  Out of Memory Error (os_linux.cpp:2627), pid=3711, tid=1970518896
+#
+# JRE version: Java(TM) SE Runtime Environment (8.0_66-b17) (build 1.8.0_66-b17)
+# Java VM: Java HotSpot(TM) Client VM (25.66-b17 mixed mode linux-x86 )
+# Core dump written. Default location: /vagrant/workspace/Prototipo/src/core or core.3711
+#
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x09c15000):  VMThread [stack: 0x756bc000,0x7573c000] [id=3713]
+
+Stack: [0x756bc000,0x7573c000],  sp=0x7573a700,  free space=505k
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+V  [libjvm.so+0x5b715f]  VMError::report_and_die()+0x16f
+V  [libjvm.so+0x20a8b5]  report_vm_out_of_memory(char const*, int, unsigned int, VMErrorType, char const*)+0x55
+V  [libjvm.so+0x49b996]  os::Linux::commit_memory_impl(char*, unsigned int, bool)+0xe6
+V  [libjvm.so+0x49be68]  os::pd_commit_memory(char*, unsigned int, unsigned int, bool)+0x28
+V  [libjvm.so+0x495d8c]  os::commit_memory(char*, unsigned int, unsigned int, bool)+0x2c
+V  [libjvm.so+0x5b31fc]  VirtualSpace::expand_by(unsigned int, bool)+0x1ec
+V  [libjvm.so+0x29a32b]  OneContigSpaceCardGeneration::grow_by(unsigned int)+0x1b
+V  [libjvm.so+0x29a01a]  OneContigSpaceCardGeneration::grow_to_reserved()+0x2a
+V  [libjvm.so+0x29a6ca]  OneContigSpaceCardGeneration::expand(unsigned int, unsigned int)+0x2a
+V  [libjvm.so+0x29ad05]  CardGeneration::compute_new_size()+0x1d5
+V  [libjvm.so+0x28edc9]  GenCollectedHeap::do_collection(bool, bool, unsigned int, bool, int)+0x679
+V  [libjvm.so+0x1b75ff]  GenCollectorPolicy::satisfy_failed_allocation(unsigned int, bool)+0x10f
+V  [libjvm.so+0x5b8344]  VM_GenCollectForAllocation::doit()+0x74
+V  [libjvm.so+0x5c1bb7]  VM_Operation::evaluate()+0x47
+V  [libjvm.so+0x5bfc93]  VMThread::evaluate_operation(VM_Operation*)+0xb3
+V  [libjvm.so+0x5c0030]  VMThread::loop()+0x1b0
+V  [libjvm.so+0x5c0495]  VMThread::run()+0x85
+V  [libjvm.so+0x49dfd9]  java_start(Thread*)+0x119
+C  [libpthread.so.0+0x5954]  start_thread+0xb4
+
+VM_Operation (0xb6ae3750): GenCollectForAllocation, mode: safepoint, requested by thread 0x09bbec00
+
+
+---------------  P R O C E S S  ---------------
+
+Java Threads: ( => current thread )
+  0x09c3e800 JavaThread "Service Thread" daemon [_thread_blocked, id=3718, stack(0x754fc000,0x7554c000)]
+  0x09c3b000 JavaThread "C1 CompilerThread0" daemon [_thread_blocked, id=3717, stack(0x7554c000,0x755cc000)]
+  0x09c39800 JavaThread "Signal Dispatcher" daemon [_thread_blocked, id=3716, stack(0x755cc000,0x7561c000)]
+  0x09c19c00 JavaThread "Finalizer" daemon [_thread_blocked, id=3715, stack(0x7561c000,0x7566c000)]
+  0x09c18400 JavaThread "Reference Handler" daemon [_thread_blocked, id=3714, stack(0x7566c000,0x756bc000)]
+  0x09bbec00 JavaThread "main" [_thread_blocked, id=3712, stack(0xb6a95000,0xb6ae5000)]
+
+Other Threads:
+=>0x09c15000 VMThread [stack: 0x756bc000,0x7573c000] [id=3713]
+  0x09c42c00 WatcherThread [stack: 0x7547c000,0x754fc000] [id=3719]
+
+VM state:at safepoint (normal execution)
+
+VM Mutex/Monitor currently owned by a thread:  ([mutex/lock_event])
+[0x09bbc428] Threads_lock - owner thread: 0x09c15000
+[0x09bbc838] Heap_lock - owner thread: 0x09bbec00
+
+Heap:
+ def new generation   total 196480K, used 16826K [0x76000000, 0x83530000, 0x8ad50000)
+  eden space 174656K,   9% used [0x76000000, 0x7706e9c8, 0x80a90000)
+  from space 21824K,   0% used [0x81fe0000, 0x81fe0000, 0x83530000)
+  to   space 21824K,   0% used [0x80a90000, 0x80a90000, 0x81fe0000)
+ tenured generation   total 437888K, used 437888K [0x8ad50000, 0xa58f0000, 0xb4800000)
+   the space 437888K, 100% used [0x8ad50000, 0xa58f0000, 0xa58f0000, 0xa58f0000)
+ Metaspace       used 6420K, capacity 6472K, committed 6552K, reserved 7472K
+
+Card table byte_map: [0x75e0b000,0x76000000] byte_map_base: 0x75a5b000
+
+Polling page: 0xb7728000
+
+CodeCache: size=32768Kb used=2517Kb max_used=2533Kb free=30250Kb
+ bounds [0xb49ff000, 0xb4c7f000, 0xb69ff000]
+ total_blobs=1326 nmethods=1175 adapters=81
+ compilation: enabled
+
+Compilation events (10 events):
+Event: 9.935 Thread 0x09c3b000 1200             java.util.HashMap$EntrySet::iterator (12 bytes)
+Event: 9.935 Thread 0x09c3b000 nmethod 1200 0xb4bc0d48 code [0xb4bc0e50, 0xb4bc0f3c]
+Event: 9.935 Thread 0x09c3b000 1201             java.util.HashMap$EntryIterator::<init> (11 bytes)
+Event: 9.935 Thread 0x09c3b000 nmethod 1201 0xb4bc0b48 code [0xb4bc0c50, 0xb4bc0cec]
+Event: 9.937 Thread 0x09c3b000 1202             java.util.HashMap::entrySet (27 bytes)
+Event: 9.937 Thread 0x09c3b000 nmethod 1202 0xb4bc08c8 code [0xb4bc09d0, 0xb4bc0ac0]
+Event: 9.980 Thread 0x09c3b000 1203             com.clarkparsia.pellet.rules.rete.BetaNode::isDirty (5 bytes)
+Event: 9.980 Thread 0x09c3b000 nmethod 1203 0xb4bc0708 code [0xb4bc0800, 0xb4bc0880]
+Event: 10.572 Thread 0x09c3b000 1204             java.util.ArrayList$Itr::next (66 bytes)
+Event: 10.573 Thread 0x09c3b000 nmethod 1204 0xb4bc0208 code [0xb4bc0340, 0xb4bc0520]
+
+GC Heap History (10 events):
+Event: 7.820 GC heap after
+Heap after GC invocations=31 (full 2):
+ def new generation   total 110080K, used 12223K [0x76000000, 0x7d770000, 0x8ad50000)
+  eden space 97856K,   0% used [0x76000000, 0x76000000, 0x7bf90000)
+  from space 12224K,  99% used [0x7bf90000, 0x7cb7fff8, 0x7cb80000)
+  to   space 12224K,   0% used [0x7cb80000, 0x7cb80000, 0x7d770000)
+ tenured generation   total 244480K, used 229032K [0x8ad50000, 0x99c10000, 0xb4800000)
+   the space 244480K,  93% used [0x8ad50000, 0x98cfa168, 0x98cfa200, 0x99c10000)
+ Metaspace       used 6418K, capacity 6472K, committed 6552K, reserved 7472K
+}
+Event: 7.916 GC heap before
+{Heap before GC invocations=31 (full 2):
+ def new generation   total 110080K, used 110079K [0x76000000, 0x7d770000, 0x8ad50000)
+  eden space 97856K, 100% used [0x76000000, 0x7bf90000, 0x7bf90000)
+  from space 12224K,  99% used [0x7bf90000, 0x7cb7fff8, 0x7cb80000)
+  to   space 12224K,   0% used [0x7cb80000, 0x7cb80000, 0x7d770000)
+ tenured generation   total 244480K, used 229032K [0x8ad50000, 0x99c10000, 0xb4800000)
+   the space 244480K,  93% used [0x8ad50000, 0x98cfa168, 0x98cfa200, 0x99c10000)
+ Metaspace       used 6418K, capacity 6472K, committed 6552K, reserved 7472K
+Event: 8.025 GC heap after
+Heap after GC invocations=32 (full 2):
+ def new generation   total 110080K, used 12224K [0x76000000, 0x7d770000, 0x8ad50000)
+  eden space 97856K,   0% used [0x76000000, 0x76000000, 0x7bf90000)
+  from space 12224K, 100% used [0x7cb80000, 0x7d770000, 0x7d770000)
+  to   space 12224K,   0% used [0x7bf90000, 0x7bf90000, 0x7cb80000)
+ tenured generation   total 244480K, used 244274K [0x8ad50000, 0x99c10000, 0xb4800000)
+   the space 244480K,  99% used [0x8ad50000, 0x99bdc990, 0x99bdca00, 0x99c10000)
+ Metaspace       used 6418K, capacity 6472K, committed 6552K, reserved 7472K
+}
+Event: 8.115 GC heap before
+{Heap before GC invocations=32 (full 2):
+ def new generation   total 110080K, used 110080K [0x76000000, 0x7d770000, 0x8ad50000)
+  eden space 97856K, 100% used [0x76000000, 0x7bf90000, 0x7bf90000)
+  from space 12224K, 100% used [0x7cb80000, 0x7d770000, 0x7d770000)
+  to   space 12224K,   0% used [0x7bf90000, 0x7bf90000, 0x7cb80000)
+ tenured generation   total 244480K, used 244274K [0x8ad50000, 0x99c10000, 0xb4800000)
+   the space 244480K,  99% used [0x8ad50000, 0x99bdc990, 0x99bdca00, 0x99c10000)
+ Metaspace       used 6418K, capacity 6472K, committed 6552K, reserved 7472K
+Event: 9.260 GC heap after
+Heap after GC invocations=33 (full 3):
+ def new generation   total 196480K, used 12214K [0x76000000, 0x83530000, 0x8ad50000)
+  eden space 174656K,   6% used [0x76000000, 0x76bedae8, 0x80a90000)
+  from space 21824K,   0% used [0x80a90000, 0x80a90000, 0x81fe0000)
+  to   space 21824K,   0% used [0x81fe0000, 0x81fe0000, 0x83530000)
+ tenured generation   total 436480K, used 261887K [0x8ad50000, 0xa5790000, 0xb4800000)
+   the space 436480K,  59% used [0x8ad50000, 0x9ad0fff8, 0x9ad10000, 0xa5790000)
+ Metaspace       used 6418K, capacity 6472K, committed 6552K, reserved 7472K
+}
+Event: 9.421 GC heap before
+{Heap before GC invocations=33 (full 3):
+ def new generation   total 196480K, used 174656K [0x76000000, 0x83530000, 0x8ad50000)
+  eden space 174656K, 100% used [0x76000000, 0x80a90000, 0x80a90000)
+  from space 21824K,   0% used [0x80a90000, 0x80a90000, 0x81fe0000)
+  to   space 21824K,   0% used [0x81fe0000, 0x81fe0000, 0x83530000)
+ tenured generation   total 436480K, used 261887K [0x8ad50000, 0xa5790000, 0xb4800000)
+   the space 436480K,  59% used [0x8ad50000, 0x9ad0fff8, 0x9ad10000, 0xa5790000)
+ Metaspace       used 6418K, capacity 6472K, committed 6552K, reserved 7472K
+Event: 9.750 GC heap after
+Heap after GC invocations=34 (full 3):
+ def new generation   total 196480K, used 21824K [0x76000000, 0x83530000, 0x8ad50000)
+  eden space 174656K,   0% used [0x76000000, 0x76000000, 0x80a90000)
+  from space 21824K, 100% used [0x81fe0000, 0x83530000, 0x83530000)
+  to   space 21824K,   0% used [0x80a90000, 0x80a90000, 0x81fe0000)
+ tenured generation   total 436480K, used 283056K [0x8ad50000, 0xa5790000, 0xb4800000)
+   the space 436480K,  64% used [0x8ad50000, 0x9c1bc1b8, 0x9c1bc200, 0xa5790000)
+ Metaspace       used 6418K, capacity 6472K, committed 6552K, reserved 7472K
+}
+Event: 10.124 GC heap before
+{Heap before GC invocations=34 (full 3):
+ def new generation   total 196480K, used 196480K [0x76000000, 0x83530000, 0x8ad50000)
+  eden space 174656K, 100% used [0x76000000, 0x80a90000, 0x80a90000)
+  from space 21824K, 100% used [0x81fe0000, 0x83530000, 0x83530000)
+  to   space 21824K,   0% used [0x80a90000, 0x80a90000, 0x81fe0000)
+ tenured generation   total 436480K, used 283056K [0x8ad50000, 0xa5790000, 0xb4800000)
+   the space 436480K,  64% used [0x8ad50000, 0x9c1bc1b8, 0x9c1bc200, 0xa5790000)
+ Metaspace       used 6419K, capacity 6472K, committed 6552K, reserved 7472K
+Event: 10.533 GC heap after
+Heap after GC invocations=35 (full 3):
+ def new generation   total 196480K, used 21824K [0x76000000, 0x83530000, 0x8ad50000)
+  eden space 174656K,   0% used [0x76000000, 0x76000000, 0x80a90000)
+  from space 21824K, 100% used [0x80a90000, 0x81fe0000, 0x81fe0000)
+  to   space 21824K,   0% used [0x81fe0000, 0x81fe0000, 0x83530000)
+ tenured generation   total 436480K, used 355178K [0x8ad50000, 0xa5790000, 0xb4800000)
+   the space 436480K,  81% used [0x8ad50000, 0xa082aa48, 0xa082ac00, 0xa5790000)
+ Metaspace       used 6419K, capacity 6472K, committed 6552K, reserved 7472K
+}
+Event: 10.851 GC heap before
+{Heap before GC invocations=35 (full 3):
+ def new generation   total 196480K, used 196480K [0x76000000, 0x83530000, 0x8ad50000)
+  eden space 174656K, 100% used [0x76000000, 0x80a90000, 0x80a90000)
+  from space 21824K, 100% used [0x80a90000, 0x81fe0000, 0x81fe0000)
+  to   space 21824K,   0% used [0x81fe0000, 0x81fe0000, 0x83530000)
+ tenured generation   total 436480K, used 355178K [0x8ad50000, 0xa5790000, 0xb4800000)
+   the space 436480K,  81% used [0x8ad50000, 0xa082aa48, 0xa082ac00, 0xa5790000)
+ Metaspace       used 6420K, capacity 6472K, committed 6552K, reserved 7472K
+
+Deoptimization events (0 events):
+No events
+
+Internal exceptions (10 events):
+Event: 3.625 Thread 0x09bbec00 Exception <a 'java/lang/ClassCastException'> (0x77ab57c8) thrown at [/HUDSON/workspace/8-2-build-linux-i586/jdk8u66/4988/hotspot/src/share/vm/runtime/sharedRuntime.cpp, line 605]
+Event: 3.627 Thread 0x09bbec00 Exception <a 'java/lang/ClassCastException'> (0x77b0c388) thrown at [/HUDSON/workspace/8-2-build-linux-i586/jdk8u66/4988/hotspot/src/share/vm/runtime/sharedRuntime.cpp, line 605]
+Event: 3.627 Thread 0x09bbec00 Exception <a 'java/lang/ClassCastException'> (0x77b32490) thrown at [/HUDSON/workspace/8-2-build-linux-i586/jdk8u66/4988/hotspot/src/share/vm/runtime/sharedRuntime.cpp, line 605]
+Event: 3.628 Thread 0x09bbec00 Exception <a 'java/lang/ClassCastException'> (0x77b6a860) thrown at [/HUDSON/workspace/8-2-build-linux-i586/jdk8u66/4988/hotspot/src/share/vm/runtime/sharedRuntime.cpp, line 605]
+Event: 3.628 Thread 0x09bbec00 Exception <a 'java/lang/ClassCastException'> (0x77b6aae8) thrown at [/HUDSON/workspace/8-2-build-linux-i586/jdk8u66/4988/hotspot/src/share/vm/runtime/sharedRuntime.cpp, line 605]
+Event: 3.628 Thread 0x09bbec00 Exception <a 'java/lang/ClassCastException'> (0x77b82600) thrown at [/HUDSON/workspace/8-2-build-linux-i586/jdk8u66/4988/hotspot/src/share/vm/runtime/sharedRuntime.cpp, line 605]
+Event: 3.628 Thread 0x09bbec00 Exception <a 'java/lang/ClassCastException'> (0x77b88130) thrown at [/HUDSON/workspace/8-2-build-linux-i586/jdk8u66/4988/hotspot/src/share/vm/runtime/sharedRuntime.cpp, line 605]
+Event: 3.629 Thread 0x09bbec00 Exception <a 'java/lang/ClassCastException'> (0x77b95bb8) thrown at [/HUDSON/workspace/8-2-build-linux-i586/jdk8u66/4988/hotspot/src/share/vm/runtime/sharedRuntime.cpp, line 605]
+Event: 3.631 Thread 0x09bbec00 Exception <a 'java/lang/ClassCastException'> (0x77c02690) thrown at [/HUDSON/workspace/8-2-build-linux-i586/jdk8u66/4988/hotspot/src/share/vm/runtime/sharedRuntime.cpp, line 605]
+Event: 3.631 Thread 0x09bbec00 Exception <a 'java/lang/ClassCastException'> (0x77c1a578) thrown at [/HUDSON/workspace/8-2-build-linux-i586/jdk8u66/4988/hotspot/src/share/vm/runtime/sharedRuntime.cpp, line 605]
+
+Events (10 events):
+Event: 9.261 Executing VM operation: GenCollectForAllocation done
+Event: 9.421 Executing VM operation: GenCollectForAllocation
+Event: 9.750 Executing VM operation: GenCollectForAllocation done
+Event: 10.124 Executing VM operation: GenCollectForAllocation
+Event: 10.533 Executing VM operation: GenCollectForAllocation done
+Event: 10.570 loading class java/util/ArrayList$ListItr
+Event: 10.571 loading class java/util/ArrayList$ListItr done
+Event: 10.571 Executing VM operation: Deoptimize
+Event: 10.571 Executing VM operation: Deoptimize done
+Event: 10.851 Executing VM operation: GenCollectForAllocation
+
+
+Dynamic libraries:
+08048000-08049000 r-xp 00000000 08:02 97525      /opt/jdk1.8.0_66/bin/java
+08049000-0804a000 rw-p 00000000 08:02 97525      /opt/jdk1.8.0_66/bin/java
+09bb4000-0a68b000 rw-p 00000000 00:00 0          [heap]
+74af7000-74b17000 rw-p 00000000 00:00 0 
+74b17000-74bf7000 ---p 00000000 00:00 0 
+74bf7000-74cf7000 rw-p 00000000 00:00 0 
+74cf7000-74df7000 rw-p 00000000 00:00 0 
+74df7000-74df8000 r--s 00002000 00:13 137        /vagrant/workspace/Prototipo/src/lib/sesame-rio-trix-2.7.16.jar
+74df8000-74df9000 r--s 00002000 00:13 136        /vagrant/workspace/Prototipo/src/lib/sesame-rio-trix-2.7.12.jar
+74df9000-74dfa000 r--s 00001000 00:13 135        /vagrant/workspace/Prototipo/src/lib/sesame-rio-trig-2.7.16.jar
+74dfa000-74dfb000 r--s 00001000 00:13 134        /vagrant/workspace/Prototipo/src/lib/sesame-rio-trig-2.7.12.jar
+74dfb000-74dfd000 r--s 00008000 00:13 133        /vagrant/workspace/Prototipo/src/lib/sesame-rio-rdfxml-2.7.16.jar
+74dfd000-74dff000 r--s 00008000 00:13 132        /vagrant/workspace/Prototipo/src/lib/sesame-rio-rdfxml-2.7.12.jar
+74dff000-74e01000 r--s 00002000 00:13 131        /vagrant/workspace/Prototipo/src/lib/sesame-rio-rdfjson-2.7.16.jar
+74e01000-74e03000 r--s 00002000 00:13 130        /vagrant/workspace/Prototipo/src/lib/sesame-rio-rdfjson-2.7.12.jar
+74e03000-74e04000 r--s 00003000 00:13 129        /vagrant/workspace/Prototipo/src/lib/sesame-rio-ntriples-2.7.16.jar
+74e04000-74e05000 r--s 00003000 00:13 128        /vagrant/workspace/Prototipo/src/lib/sesame-rio-ntriples-2.7.12.jar
+74e05000-74e06000 r--s 00001000 00:13 127        /vagrant/workspace/Prototipo/src/lib/sesame-rio-nquads-2.7.16.jar
+74e06000-74e07000 r--s 00001000 00:13 126        /vagrant/workspace/Prototipo/src/lib/sesame-rio-nquads-2.7.12.jar
+74e07000-74e09000 r--s 00000000 00:13 125        /vagrant/workspace/Prototipo/src/lib/sesame-rio-n3-2.7.16.jar
+74e09000-74e0b000 r--s 00000000 00:13 124        /vagrant/workspace/Prototipo/src/lib/sesame-rio-n3-2.7.12.jar
+74e0b000-74e0c000 r--s 00000000 00:13 123        /vagrant/workspace/Prototipo/src/lib/sesame-rio-languages-2.7.16.jar
+74e0c000-74e0d000 r--s 00000000 00:13 122        /vagrant/workspace/Prototipo/src/lib/sesame-rio-languages-2.7.12.jar
+74e0d000-74e0f000 r--s 00001000 00:13 121        /vagrant/workspace/Prototipo/src/lib/sesame-rio-datatypes-2.7.16.jar
+74e0f000-74e11000 r--s 00001000 00:13 120        /vagrant/workspace/Prototipo/src/lib/sesame-rio-datatypes-2.7.12.jar
+74e11000-74e12000 r--s 00002000 00:13 119        /vagrant/workspace/Prototipo/src/lib/sesame-rio-binary-2.7.16.jar
+74e12000-74e13000 r--s 00002000 00:13 118        /vagrant/workspace/Prototipo/src/lib/sesame-rio-binary-2.7.12.jar
+74e13000-74e15000 r--s 0000c000 00:13 117        /vagrant/workspace/Prototipo/src/lib/sesame-rio-api-2.7.16.jar
+74e15000-74e18000 r--s 0000b000 00:13 116        /vagrant/workspace/Prototipo/src/lib/sesame-rio-api-2.7.12.jar
+74e18000-74e1b000 r--s 00026000 00:13 115        /vagrant/workspace/Prototipo/src/lib/sesame-model-2.7.16.jar
+74e1b000-74e1e000 r--s 00026000 00:13 114        /vagrant/workspace/Prototipo/src/lib/sesame-model-2.7.12.jar
+74e1e000-74e1f000 r--s 00002000 00:13 113        /vagrant/workspace/Prototipo/src/lib/semargl-sesame-0.6.1.jar
+74e1f000-74e20000 r--s 00008000 00:13 112        /vagrant/workspace/Prototipo/src/lib/semargl-rdfa-0.6.1.jar
+74e20000-74e22000 r--s 00005000 00:13 111        /vagrant/workspace/Prototipo/src/lib/semargl-rdf-0.6.1.jar
+74e22000-74e24000 r--s 00004000 00:13 110        /vagrant/workspace/Prototipo/src/lib/semargl-core-0.6.1.jar
+74e24000-74e2c000 r--s 0008a000 00:13 109        /vagrant/workspace/Prototipo/src/lib/protobuf-java-2.6.0.jar
+74e2c000-74ee5000 r--s 004a9000 00:13 108        /vagrant/workspace/Prototipo/src/lib/poi-ooxml-schemas-3.13.jar
+74ee5000-74ef3000 r--s 00109000 00:13 107        /vagrant/workspace/Prototipo/src/lib/poi-ooxml-3.13.jar
+74ef3000-74f1d000 r--s 00238000 00:13 106        /vagrant/workspace/Prototipo/src/lib/poi-3.13.jar
+74f1d000-74f26000 r--s 000cc000 00:13 105        /vagrant/workspace/Prototipo/src/lib/pellet.jar
+74f26000-74f2c000 r--s 00076000 00:13 104        /vagrant/workspace/Prototipo/src/lib/pellet-test.jar
+74f2c000-74f32000 r--s 0002d000 00:13 103        /vagrant/workspace/Prototipo/src/lib/pellet-rules.jar
+74f32000-74f39000 r--s 0005c000 00:13 102        /vagrant/workspace/Prototipo/src/lib/pellet-query.jar
+74f39000-74f3c000 r--s 0000f000 00:13 101        /vagrant/workspace/Prototipo/src/lib/pellet-pellint.jar
+74f3c000-74f3e000 r--s 00018000 00:13 100        /vagrant/workspace/Prototipo/src/lib/pellet-owlapiv3.jar
+74f3e000-74f3f000 r--s 00010000 00:13 99         /vagrant/workspace/Prototipo/src/lib/pellet-owlapi.jar
+74f3f000-74f41000 r--s 0000c000 00:13 98         /vagrant/workspace/Prototipo/src/lib/pellet-modularity.jar
+74f41000-74f46000 r--s 00029000 00:13 97         /vagrant/workspace/Prototipo/src/lib/pellet-jena.jar
+74f46000-74f47000 r--s 00008000 00:13 96         /vagrant/workspace/Prototipo/src/lib/pellet-explanation.jar
+74f47000-74f48000 r--s 0000c000 00:13 95         /vagrant/workspace/Prototipo/src/lib/pellet-el.jar
+74f48000-74f49000 r--s 00006000 00:13 94         /vagrant/workspace/Prototipo/src/lib/pellet-dig.jar
+74f49000-74f4e000 r--s 0003c000 00:13 93         /vagrant/workspace/Prototipo/src/lib/pellet-datatypes.jar
+74f4e000-74f57000 r--s 00090000 00:13 92         /vagrant/workspace/Prototipo/src/lib/pellet-core.jar
+74f57000-74f58000 r--s 00011000 00:13 91         /vagrant/workspace/Prototipo/src/lib/pellet-cli.jar
+74f58000-74f67000 r--s 000ca000 00:13 90         /vagrant/workspace/Prototipo/src/lib/owlapi-parsers-5.0.2.jar
+74f67000-74fa3000 r--s 0082f000 00:13 89         /vagrant/workspace/Prototipo/src/lib/owlapi-osgidistribution-4.2.5.jar
+74fa3000-75082000 r--s 00af8000 00:13 88         /vagrant/workspace/Prototipo/src/lib/owlapi-distribution-4.0.0.jar
+75082000-750ae000 r--s 00206000 00:13 87         /vagrant/workspace/Prototipo/src/lib/org.semanticweb.owl.owlapi-3.4.4.jar
+750ae000-750b5000 r--s 0004f000 00:13 86         /vagrant/workspace/Prototipo/src/lib/org.osgi.core-4.3.1.jar
+750b5000-750b6000 r--s 00002000 00:13 85         /vagrant/workspace/Prototipo/src/lib/org.apache.servicemix.bundles.javax-inject-1_2.jar
+750b6000-750b8000 r--s 00003000 00:13 84         /vagrant/workspace/Prototipo/src/lib/org.apache.servicemix.bundles.aopalliance-1.0_6.jar
+750b8000-750b9000 r--s 0002a000 00:13 83         /vagrant/workspace/Prototipo/src/lib/org.apache.commons.io-2.4.jar
+750b9000-750c9000 r--s 000e8000 00:13 82         /vagrant/workspace/Prototipo/src/lib/mvel2-2.2.8.Final.jar
+750c9000-750d5000 r--s 00044000 00:13 81         /vagrant/workspace/Prototipo/src/lib/knowledge-api-6.4.0.Final.jar
+750d5000-750d8000 r--s 00017000 00:13 80         /vagrant/workspace/Prototipo/src/lib/kie-spring-6.4.0.Final.jar
+750d8000-750e3000 r--s 0003a000 00:13 79         /vagrant/workspace/Prototipo/src/lib/kie-internal-6.4.0.Final.jar
+750e3000-750ec000 r--s 0001f000 00:13 78         /vagrant/workspace/Prototipo/src/lib/kie-api-6.4.0.Final.jar
+750ec000-750f4000 r--s 00045000 00:13 77         /vagrant/workspace/Prototipo/src/lib/junit-4.12.jar
+750f4000-750f6000 r--s 00003000 00:13 76         /vagrant/workspace/Prototipo/src/lib/jsr305-3.0.1.jar
+750f6000-750f8000 r--s 00006000 00:13 75         /vagrant/workspace/Prototipo/src/lib/jsr305-2.0.1.jar
+750f8000-750fa000 r--s 00002000 00:13 74         /vagrant/workspace/Prototipo/src/lib/jsonld-java-sesame-0.5.0.jar
+750fa000-750fc000 r--s 0001b000 00:13 73         /vagrant/workspace/Prototipo/src/lib/jsonld-java-0.5.0.jar
+750fc000-750fd000 r--s 00005000 00:13 72         /vagrant/workspace/Prototipo/src/lib/json-simple-1.1.1.jar
+750fd000-7510c000 r--s 00076000 00:13 71         /vagrant/workspace/Prototipo/src/lib/joda-time-1.6.2.jar
+7510c000-75115000 r--s 0007f000 00:13 70         /vagrant/workspace/Prototipo/src/lib/jep-2.4.2.jar
+75115000-7511f000 r--s 00060000 00:13 69         /vagrant/workspace/Prototipo/src/lib/jdk8-1.9.13.jar
+7511f000-75121000 r--s 00003000 00:13 68         /vagrant/workspace/Prototipo/src/lib/jcl-over-slf4j-1.7.7.jar
+75121000-7512f000 r--s 000c6000 00:13 67         /vagrant/workspace/Prototipo/src/lib/jbpm-flow-6.4.0.Final.jar
+7512f000-75130000 r--s 00000000 00:13 66         /vagrant/workspace/Prototipo/src/lib/javax.inject-1.jar
+75130000-75132000 r--s 00008000 00:13 65         /vagrant/workspace/Prototipo/src/lib/jama-1.0.3.jar
+75132000-75144000 r--s 00105000 00:13 64         /vagrant/workspace/Prototipo/src/lib/jackson-databind-2.5.1.jar
+75144000-75148000 r--s 00035000 00:13 63         /vagrant/workspace/Prototipo/src/lib/jackson-core-2.5.1.jar
+75148000-7514a000 r--s 00008000 00:13 62         /vagrant/workspace/Prototipo/src/lib/jackson-annotations-2.5.1.jar
+7514a000-75151000 r--s 00049000 00:13 61         /vagrant/workspace/Prototipo/src/lib/httpcore-4.4.3.jar
+75151000-75157000 r--s 00032000 00:13 60         /vagrant/workspace/Prototipo/src/lib/httpcore-4.2.4.jar
+75157000-7515a000 r--s 00024000 00:13 59         /vagrant/workspace/Prototipo/src/lib/httpclient-cache-4.5.1.jar
+7515a000-7515d000 r--s 0001a000 00:13 58         /vagrant/workspace/Prototipo/src/lib/httpclient-cache-4.2.5.jar
+7515d000-7516a000 r--s 000a6000 00:13 57         /vagrant/workspace/Prototipo/src/lib/httpclient-4.5.1.jar
+7516a000-75173000 r--s 00061000 00:13 56         /vagrant/workspace/Prototipo/src/lib/httpclient-4.2.5.jar
+75173000-75175000 r--s 00009000 00:13 55         /vagrant/workspace/Prototipo/src/lib/hamcrest-core-1.3.jar
+75175000-75177000 r--s 00012000 00:13 54         /vagrant/workspace/Prototipo/src/lib/guice-multibindings-4.0.jar
+75177000-75179000 r--s 00009000 00:13 53         /vagrant/workspace/Prototipo/src/lib/guice-assistedinject-4.0.jar
+75179000-75187000 r--s 00096000 00:13 52         /vagrant/workspace/Prototipo/src/lib/guice-4.0.jar
+75187000-751b2000 r--s 001fc000 00:13 51         /vagrant/workspace/Prototipo/src/lib/guava-18.0.jar
+751b2000-751b6000 r--s 00025000 00:13 50         /vagrant/workspace/Prototipo/src/lib/gson-1.4.jar
+751b6000-751c8000 r--s 00223000 00:13 49         /vagrant/workspace/Prototipo/src/lib/ecj-4.4.2.jar
+751c8000-751ca000 r--s 0000d000 00:13 48         /vagrant/workspace/Prototipo/src/lib/drools-templates-6.4.0.Final.jar
+751ca000-751cc000 r--s 0001e000 00:13 47         /vagrant/workspace/Prototipo/src/lib/drools-reteoo-6.4.0.Final.jar
+751cc000-751ce000 r--s 00001000 00:13 46         /vagrant/workspace/Prototipo/src/lib/drools-osgi-integration-6.4.0.Final.jar
+751ce000-751d0000 r--s 0000e000 00:13 45         /vagrant/workspace/Prototipo/src/lib/drools-decisiontables-6.4.0.Final.jar
+751d0000-75207000 r--s 0032f000 00:13 44         /vagrant/workspace/Prototipo/src/lib/drools-core-6.4.0.Final.jar
+75207000-7521e000 r--s 00185000 00:13 43         /vagrant/workspace/Prototipo/src/lib/drools-compiler-6.4.0.Final.jar
+7521e000-75220000 r--s 0000e000 00:13 42         /vagrant/workspace/Prototipo/src/lib/commons-logging-1.2.jar
+75220000-75224000 r--s 0002a000 00:13 41         /vagrant/workspace/Prototipo/src/lib/commons-io-2.4.jar
+75224000-75227000 r--s 00011000 00:13 40         /vagrant/workspace/Prototipo/src/lib/commons-discovery-0.4_1.jar
+75227000-7522e000 r--s 0003a000 00:13 39         /vagrant/workspace/Prototipo/src/lib/commons-codec-1.9.jar
+7522e000-75234000 r--s 00033000 00:13 38         /vagrant/workspace/Prototipo/src/lib/commons-codec-1.6.jar
+75234000-75260000 rw-p 00000000 00:00 0 
+75260000-75377000 r--s 01066000 00:13 37         /vagrant/workspace/Prototipo/src/lib/checker.jar
+75377000-75381000 r--s 00022000 00:13 36         /vagrant/workspace/Prototipo/src/lib/checker-qual-1.9.13.jar
+75381000-753ac000 r--s 00291000 00:13 35         /vagrant/workspace/Prototipo/src/lib/checker-1.9.13.jar
+753ac000-753c0000 r--s 00179000 00:13 34         /vagrant/workspace/Prototipo/src/lib/axis-1.4_2.jar
+753c0000-753c4000 r--s 0001e000 00:13 33         /vagrant/workspace/Prototipo/src/lib/aterm-java-1.6.jar
+753c4000-753c6000 r--s 00000000 00:13 32         /vagrant/workspace/Prototipo/src/lib/aopalliance-1.0.jar
+753c6000-753c9000 r--s 00026000 00:13 31         /vagrant/workspace/Prototipo/src/lib/antlr-runtime-3.5.jar
+753c9000-753cd000 r--s 00015000 00:13 30         /vagrant/workspace/Prototipo/src/lib/xz-1.5.jar
+753cd000-753da000 r--s 00075000 00:13 29         /vagrant/workspace/Prototipo/src/lib/xstream-1.4.7.jar
+753da000-75418000 r--s 0025d000 00:13 26         /vagrant/workspace/Prototipo/src/lib/xmlbeans-2.6.0.jar
+75418000-75440000 r--s 00241000 00:13 25         /vagrant/workspace/Prototipo/src/lib/trove4j-3.0.3.jar
+75440000-75445000 r--s 00039000 00:13 24         /vagrant/workspace/Prototipo/src/lib/swrlapi-drools-engine-1.0.12.jar
+75445000-75451000 r--s 00114000 00:13 23         /vagrant/workspace/Prototipo/src/lib/swrlapi-1.0.12.jar
+75451000-75453000 r--s 00005000 00:13 22         /vagrant/workspace/Prototipo/src/lib/stax-api-1.0.1.jar
+75453000-7545b000 r--s 00034000 00:13 21         /vagrant/workspace/Prototipo/src/lib/spring-tx-3.2.12.RELEASE.jar
+7545b000-75465000 r--s 0004f000 00:13 19         /vagrant/workspace/Prototipo/src/lib/spring-osgi-core-1.2.1.jar
+75465000-75469000 r--s 0002c000 00:13 18         /vagrant/workspace/Prototipo/src/lib/spring-expression-3.2.12.RELEASE.jar
+75469000-7547c000 r--s 000c6000 00:13 17         /vagrant/workspace/Prototipo/src/lib/spring-core-3.2.12.RELEASE.jar
+7547c000-7547d000 ---p 00000000 00:00 0 
+7547d000-754fc000 rw-p 00000000 00:00 0 
+754fc000-754ff000 ---p 00000000 00:00 0 
+754ff000-7554c000 rw-p 00000000 00:00 0 
+7554c000-7554f000 ---p 00000000 00:00 0 
+7554f000-755cc000 rw-p 00000000 00:00 0 
+755cc000-755cf000 ---p 00000000 00:00 0 
+755cf000-7561c000 rw-p 00000000 00:00 0 
+7561c000-7561f000 ---p 00000000 00:00 0 
+7561f000-7566c000 rw-p 00000000 00:00 0 
+7566c000-7566f000 ---p 00000000 00:00 0 
+7566f000-756bc000 rw-p 00000000 00:00 0 
+756bc000-756bd000 ---p 00000000 00:00 0 
+756bd000-7578b000 rw-p 00000000 00:00 0 
+7578b000-75964000 r--s 03d20000 08:02 97843      /opt/jdk1.8.0_66/jre/lib/rt.jar
+75964000-75e05000 rw-p 00000000 00:00 0 
+75e05000-75e0b000 ---p 00000000 00:00 0 
+75e0b000-75e76000 rw-p 00000000 00:00 0 
+75e76000-75eb1000 ---p 00000000 00:00 0 
+75eb1000-75f88000 rw-p 00000000 00:00 0 
+75f88000-75fff000 ---p 00000000 00:00 0 
+75fff000-83530000 rw-p 00000000 00:00 0 
+83530000-8ad50000 ---p 00000000 00:00 0 
+8ad50000-a58f0000 rw-p 00000000 00:00 0 
+b46f6000-b4800000 rw-p 00000000 00:00 0 
+b4800000-b4802000 r--s 00005000 00:13 28         /vagrant/workspace/Prototipo/src/lib/xpp3_min-1.1.4c.jar
+b4802000-b4803000 r--s 00001000 00:13 27         /vagrant/workspace/Prototipo/src/lib/xmlpull-1.1.3.1.jar
+b4803000-b4818000 r--s 000bf000 00:13 16         /vagrant/workspace/Prototipo/src/lib/spring-context-3.2.12.RELEASE.jar
+b4818000-b4824000 r--s 0008a000 00:13 15         /vagrant/workspace/Prototipo/src/lib/spring-beans-3.2.12.RELEASE.jar
+b4824000-b482c000 r--s 0004b000 00:13 14         /vagrant/workspace/Prototipo/src/lib/spring-aop-3.2.12.RELEASE.jar
+b482c000-b482d000 r--s 00002000 00:13 13         /vagrant/workspace/Prototipo/src/lib/slf4j-simple-1.7.21.jar
+b482d000-b482f000 r--s 00009000 00:13 12         /vagrant/workspace/Prototipo/src/lib/slf4j-api-1.7.21.jar
+b482f000-b4831000 r--s 00012000 00:13 11         /vagrant/workspace/Prototipo/src/lib/sesame-util-2.7.16.jar
+b4831000-b4907000 rw-p 00000000 00:00 0 
+b4907000-b497f000 ---p 00000000 00:00 0 
+b497f000-b4989000 rw-p 00000000 00:00 0 
+b4989000-b49ff000 ---p 00000000 00:00 0 
+b49ff000-b4c7f000 rwxp 00000000 00:00 0 
+b4c7f000-b69ff000 ---p 00000000 00:00 0 
+b69ff000-b6a18000 r-xp 00000000 08:02 97821      /opt/jdk1.8.0_66/jre/lib/i386/libzip.so
+b6a18000-b6a19000 rw-p 00019000 08:02 97821      /opt/jdk1.8.0_66/jre/lib/i386/libzip.so
+b6a19000-b6a21000 rw-s 00000000 08:02 170362     /tmp/hsperfdata_root/3711
+b6a21000-b6a2b000 r-xp 00000000 08:02 251499     /lib/i386-linux-gnu/libnss_files-2.13.so
+b6a2b000-b6a2c000 r--p 00009000 08:02 251499     /lib/i386-linux-gnu/libnss_files-2.13.so
+b6a2c000-b6a2d000 rw-p 0000a000 08:02 251499     /lib/i386-linux-gnu/libnss_files-2.13.so
+b6a2d000-b6a36000 r-xp 00000000 08:02 251511     /lib/i386-linux-gnu/libnss_nis-2.13.so
+b6a36000-b6a37000 r--p 00008000 08:02 251511     /lib/i386-linux-gnu/libnss_nis-2.13.so
+b6a37000-b6a38000 rw-p 00009000 08:02 251511     /lib/i386-linux-gnu/libnss_nis-2.13.so
+b6a38000-b6a4b000 r-xp 00000000 08:02 251509     /lib/i386-linux-gnu/libnsl-2.13.so
+b6a4b000-b6a4c000 r--p 00012000 08:02 251509     /lib/i386-linux-gnu/libnsl-2.13.so
+b6a4c000-b6a4d000 rw-p 00013000 08:02 251509     /lib/i386-linux-gnu/libnsl-2.13.so
+b6a4d000-b6a4f000 rw-p 00000000 00:00 0 
+b6a4f000-b6a55000 r-xp 00000000 08:02 251501     /lib/i386-linux-gnu/libnss_compat-2.13.so
+b6a55000-b6a56000 r--p 00005000 08:02 251501     /lib/i386-linux-gnu/libnss_compat-2.13.so
+b6a56000-b6a57000 rw-p 00006000 08:02 251501     /lib/i386-linux-gnu/libnss_compat-2.13.so
+b6a57000-b6a58000 r--s 00008000 00:13 20         /vagrant/workspace/Prototipo/src/lib/spring-osgi-io-1.2.1.jar
+b6a58000-b6a5a000 r--s 00012000 00:13 10         /vagrant/workspace/Prototipo/src/lib/sesame-util-2.7.12.jar
+b6a5a000-b6a5b000 r--s 00005000 00:13 9          /vagrant/workspace/Prototipo/src/lib/sesame-rio-turtle-2.7.16.jar
+b6a5b000-b6a7f000 r-xp 00000000 08:02 97816      /opt/jdk1.8.0_66/jre/lib/i386/libjava.so
+b6a7f000-b6a80000 rw-p 00023000 08:02 97816      /opt/jdk1.8.0_66/jre/lib/i386/libjava.so
+b6a80000-b6a8b000 r-xp 00000000 08:02 97767      /opt/jdk1.8.0_66/jre/lib/i386/libverify.so
+b6a8b000-b6a8c000 rw-p 0000b000 08:02 97767      /opt/jdk1.8.0_66/jre/lib/i386/libverify.so
+b6a8c000-b6a93000 r-xp 00000000 08:02 251500     /lib/i386-linux-gnu/librt-2.13.so
+b6a93000-b6a94000 r--p 00006000 08:02 251500     /lib/i386-linux-gnu/librt-2.13.so
+b6a94000-b6a95000 rw-p 00007000 08:02 251500     /lib/i386-linux-gnu/librt-2.13.so
+b6a95000-b6a98000 ---p 00000000 00:00 0 
+b6a98000-b6ae5000 rw-p 00000000 00:00 0 
+b6ae5000-b6b09000 r-xp 00000000 08:02 251502     /lib/i386-linux-gnu/libm-2.13.so
+b6b09000-b6b0a000 r--p 00023000 08:02 251502     /lib/i386-linux-gnu/libm-2.13.so
+b6b0a000-b6b0b000 rw-p 00024000 08:02 251502     /lib/i386-linux-gnu/libm-2.13.so
+b6b0b000-b715b000 r-xp 00000000 08:02 97790      /opt/jdk1.8.0_66/jre/lib/i386/client/libjvm.so
+b715b000-b7181000 rw-p 00650000 08:02 97790      /opt/jdk1.8.0_66/jre/lib/i386/client/libjvm.so
+b7181000-b75a4000 rw-p 00000000 00:00 0 
+b75a4000-b76eb000 r-xp 00000000 08:02 251505     /lib/i386-linux-gnu/libc-2.13.so
+b76eb000-b76ec000 ---p 00147000 08:02 251505     /lib/i386-linux-gnu/libc-2.13.so
+b76ec000-b76ee000 r--p 00147000 08:02 251505     /lib/i386-linux-gnu/libc-2.13.so
+b76ee000-b76ef000 rw-p 00149000 08:02 251505     /lib/i386-linux-gnu/libc-2.13.so
+b76ef000-b76f2000 rw-p 00000000 00:00 0 
+b76f2000-b76f4000 r-xp 00000000 08:02 251498     /lib/i386-linux-gnu/libdl-2.13.so
+b76f4000-b76f5000 r--p 00001000 08:02 251498     /lib/i386-linux-gnu/libdl-2.13.so
+b76f5000-b76f6000 rw-p 00002000 08:02 251498     /lib/i386-linux-gnu/libdl-2.13.so
+b76f6000-b76f7000 rw-p 00000000 00:00 0 
+b76f7000-b770b000 r-xp 00000000 08:02 90274      /opt/jdk1.8.0_66/lib/i386/jli/libjli.so
+b770b000-b770c000 rw-p 00014000 08:02 90274      /opt/jdk1.8.0_66/lib/i386/jli/libjli.so
+b770c000-b7721000 r-xp 00000000 08:02 251495     /lib/i386-linux-gnu/libpthread-2.13.so
+b7721000-b7722000 r--p 00014000 08:02 251495     /lib/i386-linux-gnu/libpthread-2.13.so
+b7722000-b7723000 rw-p 00015000 08:02 251495     /lib/i386-linux-gnu/libpthread-2.13.so
+b7723000-b7725000 rw-p 00000000 00:00 0 
+b7725000-b7727000 r--s 00004000 00:13 8          /vagrant/workspace/Prototipo/src/lib/sesame-rio-turtle-2.7.12.jar
+b7727000-b7728000 rw-p 00000000 00:00 0 
+b7728000-b7729000 ---p 00000000 00:00 0 
+b7729000-b772b000 rw-p 00000000 00:00 0 
+b772b000-b772c000 r-xp 00000000 00:00 0          [vdso]
+b772c000-b7748000 r-xp 00000000 08:02 251508     /lib/i386-linux-gnu/ld-2.13.so
+b7748000-b7749000 r--p 0001b000 08:02 251508     /lib/i386-linux-gnu/ld-2.13.so
+b7749000-b774a000 rw-p 0001c000 08:02 251508     /lib/i386-linux-gnu/ld-2.13.so
+bfa77000-bfa78000 rwxp 00000000 00:00 0 
+bfaaa000-bfacb000 rw-p 00000000 00:00 0          [stack]
+
+VM Arguments:
+jvm_args: -Xnoclassgc -Xms128M -Xmx1000M 
+java_command: colorblind.Teste Deuteranopia TechnicalImages all DeutTechnicalImagesRule
+java_class_path (initial): .:lib/sesame-rio-turtle-2.7.12.jar:lib/sesame-rio-turtle-2.7.16.jar:lib/sesame-util-2.7.12.jar:lib/sesame-util-2.7.16.jar:lib/slf4j-api-1.7.21.jar:lib/slf4j-simple-1.7.21.jar:lib/spring-aop-3.2.12.RELEASE.jar:lib/spring-beans-3.2.12.RELEASE.jar:lib/spring-context-3.2.12.RELEASE.jar:lib/spring-core-3.2.12.RELEASE.jar:lib/spring-expression-3.2.12.RELEASE.jar:lib/spring-osgi-core-1.2.1.jar:lib/spring-osgi-io-1.2.1.jar:lib/spring-tx-3.2.12.RELEASE.jar:lib/stax-api-1.0.1.jar:lib/swrlapi-1.0.12.jar:lib/swrlapi-drools-engine-1.0.12.jar:lib/trove4j-3.0.3.jar:lib/xmlbeans-2.6.0.jar:lib/xmlpull-1.1.3.1.jar:lib/xpp3_min-1.1.4c.jar:lib/xstream-1.4.7.jar:lib/xz-1.5.jar:lib/antlr-runtime-3.5.jar:lib/aopalliance-1.0.jar:lib/aterm-java-1.6.jar:lib/axis-1.4_2.jar:lib/checker-1.9.13.jar:lib/checker-qual-1.9.13.jar:lib/checker.jar:lib/commons-codec-1.6.jar:lib/commons-codec-1.9.jar:lib/commons-discovery-0.4_1.jar:lib/commons-io-2.4.jar:lib/commons-logging-1.2.jar:lib/drools-compiler-6.4.0.Final.jar:lib/drools-core-6.4.0.Final.jar:lib/drools-decisiontables-6.4.0.Final.jar:lib/drools-osgi-integration-6.4.0.Final.jar:lib/drools-reteoo-6.4.0.Final.jar:lib/drools-templates-6.4.0.Final.jar:lib/ecj-4.4.2.jar:lib/gson-1.4.jar:lib/guava-18.0.jar:lib/guice-4.0.jar:lib/guice-assistedinject-4.0.jar:lib/guice-multibindings-4.0.jar:lib/hamcrest-core-1.3.jar:lib/httpclient-4.2.5.jar:lib/httpclient-4.5.1.jar:lib/httpclient-cache-4.2.5.jar:lib/httpclient-cache-4.5.1.jar:lib/httpcore-4.2.4.jar:lib/httpcore-4.4.3.jar:lib/jackson-annotations-2.5.1.jar:lib/jackson-core-2.5.1.jar:lib/jackson-databind-2.5.1.jar:lib/jama-1.0.3.jar:lib/javax.inject-1.jar:lib/jbpm-flow-6.4.0.Final.jar:lib/jcl-over-slf4j-1.7.7.jar:lib/jdk8-1.9.13.jar:lib/jep-2.4.2.jar:lib/joda-time-1.6.2.jar:lib/json-simple-1.1.1.jar:lib/jsonld-java-0.5.0.jar:lib/jsonld-java-sesame-0.5.0.jar:lib/jsr305-2.0.1.jar:lib/jsr305-3.0.1.jar:lib/junit-4.12.jar:lib/kie-api-6.4.0.Final.jar:lib/kie-internal-6.4.0.Final.jar:lib/
+Launcher Type: SUN_STANDARD
+
+Environment Variables:
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+USERNAME=root
+SHELL=/usr/bin/zsh
+
+Signal Handlers:
+SIGSEGV: [libjvm.so+0x5b7c70], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGBUS: [libjvm.so+0x5b7c70], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGFPE: [libjvm.so+0x498670], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGPIPE: [libjvm.so+0x498670], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGXFSZ: [libjvm.so+0x498670], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGILL: [libjvm.so+0x498670], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGUSR1: SIG_DFL, sa_mask[0]=00000000000000000000000000000000, sa_flags=none
+SIGUSR2: [libjvm.so+0x499cf0], sa_mask[0]=00000000000000000000000000000000, sa_flags=SA_RESTART|SA_SIGINFO
+SIGHUP: [libjvm.so+0x49b1a0], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGINT: [libjvm.so+0x49b1a0], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGTERM: [libjvm.so+0x49b1a0], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGQUIT: [libjvm.so+0x49b1a0], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+
+
+---------------  S Y S T E M  ---------------
+
+OS:PRETTY_NAME="Debian GNU/Linux 7 (wheezy)"
+NAME="Debian GNU/Linux"
+VERSION_ID="7"
+VERSION="7 (wheezy)"
+ID=debian
+ANSI_COLOR="1;31"
+HOME_URL="http://www.debian.org/"
+SUPPORT_URL="http://www.debian.org/support/"
+BUG_REPORT_URL="http://bugs.debian.org/"
+
+uname:Linux 3.2.0-4-686-pae #1 SMP Debian 3.2.51-1 i686
+libc:glibc 2.13 NPTL 2.13 
+rlimit: STACK 8192k, CORE infinity, NPROC 7998, NOFILE 4096, AS infinity
+load average:0.42 0.28 0.19
+
+/proc/meminfo:
+MemTotal:        1034176 kB
+MemFree:          232212 kB
+Buffers:            1480 kB
+Cached:            54832 kB
+SwapCached:            0 kB
+Active:           742948 kB
+Inactive:          36400 kB
+Active(anon):     723072 kB
+Inactive(anon):      216 kB
+Active(file):      19876 kB
+Inactive(file):    36184 kB
+Unevictable:           0 kB
+Mlocked:               0 kB
+HighTotal:        137160 kB
+HighFree:           1820 kB
+LowTotal:         897016 kB
+LowFree:          230392 kB
+SwapTotal:             0 kB
+SwapFree:              0 kB
+Dirty:                96 kB
+Writeback:             0 kB
+AnonPages:        723080 kB
+Mapped:            17216 kB
+Shmem:               252 kB
+Slab:               7384 kB
+SReclaimable:       3104 kB
+SUnreclaim:         4280 kB
+KernelStack:         776 kB
+PageTables:         2540 kB
+NFS_Unstable:          0 kB
+Bounce:                0 kB
+WritebackTmp:          0 kB
+CommitLimit:      517088 kB
+Committed_AS:    1146716 kB
+VmallocTotal:     122880 kB
+VmallocUsed:       18620 kB
+VmallocChunk:     103772 kB
+HardwareCorrupted:     0 kB
+AnonHugePages:         0 kB
+HugePages_Total:       0
+HugePages_Free:        0
+HugePages_Rsvd:        0
+HugePages_Surp:        0
+Hugepagesize:       2048 kB
+DirectMap4k:       12280 kB
+DirectMap2M:      899072 kB
+
+
+CPU:total 1 (1 cores per cpu, 1 threads per core) family 6 model 58 stepping 9, cmov, cx8, fxsr, mmx, sse, sse2, sse3, ssse3, sse4.1, sse4.2, popcnt, avx, clmul, tsc, tscinvbit, tscinv
+
+/proc/cpuinfo:
+processor	: 0
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 58
+model name	: Intel(R) Core(TM) i5-3210M CPU @ 2.50GHz
+stepping	: 9
+microcode	: 0x19
+cpu MHz		: 2494.339
+cache size	: 3072 KB
+fdiv_bug	: no
+hlt_bug		: no
+f00f_bug	: no
+coma_bug	: no
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 nx rdtscp constant_tsc up xtopology nonstop_tsc pni pclmulqdq monitor ssse3 cx16 sse4_1 sse4_2 popcnt xsave avx rdrand lahf_lm
+bogomips	: 4988.67
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 36 bits physical, 48 bits virtual
+power management:
+
+
+
+Memory: 4k page, physical 1034176k(232212k free), swap 0k(0k free)
+
+vm_info: Java HotSpot(TM) Client VM (25.66-b17) for linux-x86 JRE (1.8.0_66-b17), built on Oct  6 2015 18:10:30 by "java_re" with gcc 4.3.0 20080428 (Red Hat 4.3.0-8)
+
+time: Sat Sep 24 16:55:16 2016
+elapsed time: 13 seconds (0d 0h 0m 13s)
+
